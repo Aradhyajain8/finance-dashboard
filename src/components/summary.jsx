@@ -53,11 +53,36 @@ export default function Transactions({ transactions, setTransactions, role }) {
 
       <h2>Transactions</h2>
 
+      {/* BALANCE / INCOME / EXPENSE CARDS */}
+
+      <div className="cards">
+
+        <div className="card">
+          <h3>Balance</h3>
+          <p>₹{balance}</p>
+        </div>
+
+        <div className="card">
+          <h3>Income</h3>
+          <p>₹{income}</p>
+        </div>
+
+        <div className="card">
+          <h3>Expenses</h3>
+          <p>₹{expenses}</p>
+        </div>
+
+      </div>
+
+      {/* ADD TRANSACTION BUTTON */}
+
       {role==="admin" && (
         <button onClick={()=>setShowForm(true)}>
           Add Transaction
         </button>
       )}
+
+      {/* MODAL POPUP FORM */}
 
       {showForm && (
         <div className="modalOverlay">
@@ -117,6 +142,8 @@ export default function Transactions({ transactions, setTransactions, role }) {
 
         </div>
       )}
+
+      {/* TRANSACTIONS TABLE */}
 
       <TransactionTable transactions={transactions}/>
 
